@@ -1,6 +1,6 @@
 var sl;
 var feed = [];
-var numFood;
+var numFood = 10;
 
 function setup() {
     createCanvas(640, 480);
@@ -13,16 +13,56 @@ function setup() {
 
 function draw() {
     background('#FFFAED');
+    sl.display();
+    
+    for(var i = 0; i < feed.length; i++) {
+        feed[i].display();
+    }
+    
+}
+
+function mousePressed() {
+    sl.eat;
+}
+
+function Food(x, y) {
+    this.x = x;
+    this.y = y;
+    this.color = color('#088A08');
+    this.foodSize = 50;
+    
+    this.display = function() {
+        fill(this.color);
+        ellipse(this.x, this.y, this.foodSize, this.foodSize);
+    }
     
 }
 
 function Sloth() {
+    var x = mouseX;
+    var y = mouseY;
+    var diameter = 200;
     
+    this.getDistance = function() {
+        var dist = Math.sqrt(Math.pow(x - other.x, 2) + Math.pow(y - other.y, 2));
+        return dist;
+    };
     
+    this.eat = function() {
+        for(var i= 0; i < feed.length; i++) {
+            var food = feed[i];
+            var d = this.getDistane(food);
+            var r1 = food.foodSize / 2;
+            var r2 = diameter / 2;
+            if(r1 + r2 > d) {
+               feed.splice(i, 1);
+            }
+        }
+    };
     
     this.display = function() {
-        var x = mouseX;
-        var y = mouseY;
+        x = mouseX;
+        y = mouseY;
 
         //face
         noStroke();
@@ -73,6 +113,6 @@ function Sloth() {
         //tongue
         fill('#EE3E36');
         arc(x - 10, y + 85, 30, 70, 0, PI+QUARTER_PI, CHORD);
-    }
+    };
     
 }
