@@ -3,6 +3,7 @@ var feed = [];
 var numFood = 10;
 
 function setup() {
+    rectMode(CENTER);
     createCanvas(640, 480);
     sl = new Sloth();
     
@@ -22,7 +23,7 @@ function draw() {
 }
 
 function mousePressed() {
-    sl.eat;
+    sl.eat();
 }
 
 function Food(x, y) {
@@ -43,19 +44,20 @@ function Sloth() {
     var y = mouseY;
     var diameter = 200;
     
-    this.getDistance = function() {
+    this.getDistance = function (other) {
         var dist = Math.sqrt(Math.pow(x - other.x, 2) + Math.pow(y - other.y, 2));
         return dist;
     };
     
-    this.eat = function() {
-        for(var i= 0; i < feed.length; i++) {
+    this.eat = function () {
+        for(var i = feed.length - 1; i >= 0; i--) {
             var food = feed[i];
             var d = this.getDistane(food);
             var r1 = food.foodSize / 2;
             var r2 = diameter / 2;
             if(r1 + r2 > d) {
-               feed.splice(i, 1);
+                feed.splice(i, 1);
+                feed.push(new Food(random(width), random(height)));
             }
         }
     };
