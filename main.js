@@ -34,7 +34,9 @@ function Food(x, y) {
     
     this.display = function() {
         fill(this.color);
-        ellipse(this.x, this.y, this.foodSize, this.foodSize);
+        ellipse(this.x, this.y, this.foodSize, this.foodSize + 20);
+        fill('#31B404');
+        line(this.x - 25, this.y, this.x + 25, this.y);
     }
     
 }
