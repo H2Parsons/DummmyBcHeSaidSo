@@ -52,7 +52,7 @@ function Sloth() {
     this.eat = function () {
         for(var i = feed.length - 1; i >= 0; i--) {
             var food = feed[i];
-            var d = this.getDistane(food);
+            var d = this.getDistance(food);
             var r1 = food.foodSize / 2;
             var r2 = diameter / 2;
             if(r1 + r2 > d) {
