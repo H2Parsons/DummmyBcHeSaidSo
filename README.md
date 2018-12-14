@@ -51,3 +51,21 @@ an example</a> inline link.</p>
 <p><a href="http://example.net/">This link</a> has no
 title attribute.</p>  
 
+Images
+Inline image syntax looks like this:
+
+![Alt text](/path/to/img.jpg)
+
+![Alt text](/path/to/img.jpg "Optional title")
+That is:
+
+An exclamation mark: !;
+followed by a set of square brackets, containing the alt attribute text for the image;
+followed by a set of parentheses, containing the URL or path to the image, and an optional title attribute enclosed in double or single quotes.
+Reference-style image syntax looks like this:
+
+![Alt text][id]
+Where “id” is the name of a defined image reference. Image references are defined using syntax identical to link references:
+
+[id]: url/to/image  "Optional title attribute"
+
