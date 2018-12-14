@@ -4,7 +4,7 @@ var numFood = 10;
 
 function setup() {
     rectMode(CENTER);
-    createCanvas(640, 480);
+    createCanvas(1024, 768);
     sl = new Sloth();
     
     for(var i = 0; i < numFood; i++) {
